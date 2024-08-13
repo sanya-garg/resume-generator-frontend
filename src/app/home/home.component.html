@@ -1,0 +1,292 @@
+<section class="container col-lg-8 mx-auto resume-form-section">
+   <h3 color="primary" class="mat-h3 page-title mt-4">Let's create your resume!</h3>
+   <div class="subtitle-content">
+      <div class="subtitle-text">
+         <div>Fill in the details to get started.</div>
+      </div>
+   </div>
+   <form [formGroup]="resumeForm" (ngSubmit)="onSubmit()">
+      <div>
+         <div formGroupName="personalDetails">
+            <h5>Personal Details</h5>
+            <hr />
+            <div class="row">
+               <div class="mb-3 col">
+                  <label for="formControlName" class="form-label">Name*</label>
+                  <input type="text" class="form-control" formControlName="name" aria-describedby="nameHelp">
+                  <div
+                     *ngIf="resumeForm.controls.personalDetails.controls.name.invalid && (resumeForm.controls.personalDetails.controls.name.touched || resumeForm.controls.personalDetails.controls.name.dirty)">
+                     <div *ngIf="resumeForm.controls.personalDetails.controls.name.hasError('required')" class="error">
+                        Name is required
+                     </div>
+                     <div *ngIf="resumeForm.controls.personalDetails.controls.name.hasError('minlength')" class="error">
+                        Name is must be at least 4 characters long.
+                     </div>
+                     <div *ngIf="resumeForm.controls.personalDetails.controls.name.hasError('pattern')" class="error">
+                        Name must contain only characters
+                     </div>
+                  </div>
+               </div>
+               <div class="mb-3 col">
+                  <label for="email" class="form-label">Email*</label>
+                  <input type="email" class="form-control" formControlName="email" aria-describedby="emailHelp">
+                  <div
+                  *ngIf="resumeForm.controls.personalDetails.controls.email.invalid && (resumeForm.controls.personalDetails.controls.email.touched || resumeForm.controls.personalDetails.controls.email.dirty)">
+                  <div *ngIf="resumeForm.controls.personalDetails.controls.email.hasError('required')" class="error">
+                     Email is required
+                  </div>
+                  <div *ngIf="resumeForm.controls.personalDetails.controls.email.hasError('email')" class="error">
+                     Email is not valid
+                  </div>
+               </div>
+               </div>
+
+               <div class="mb-3 col">
+                  <label for="mobile" class="form-label">Mobile*</label>
+                  <input type="text" class="form-control" formControlName="mobile" aria-describedby="emailHelp">
+                  <div
+                  *ngIf="resumeForm.controls.personalDetails.controls.mobile.invalid && (resumeForm.controls.personalDetails.controls.mobile.touched || resumeForm.controls.personalDetails.controls.mobile.dirty)">
+                  <div *ngIf="resumeForm.controls.personalDetails.controls.mobile.hasError('required')" class="error">
+                     Mobile is required
+                  </div>
+                  <div *ngIf="resumeForm.controls.personalDetails.controls.mobile.hasError('pattern')" class="error">
+                     Mobile is not valid
+                  </div>
+               </div>
+               </div>
+            </div>
+            <div class="row">
+               <div class="mb-3 col">
+                  <label for="linkedln" class="form-label">Linkedln URL*</label>
+                  <input type="text" class="form-control" formControlName="linkedln" aria-describedby="emailHelp">
+                  <div
+                  *ngIf="resumeForm.controls.personalDetails.controls.linkedln.invalid && (resumeForm.controls.personalDetails.controls.linkedln.touched || resumeForm.controls.personalDetails.controls.linkedln.dirty)">
+                  <div *ngIf="resumeForm.controls.personalDetails.controls.linkedln.hasError('required')" class="error">
+                     Linkedln URL is required
+                  </div>
+                  <div *ngIf="resumeForm.controls.personalDetails.controls.linkedln.hasError('pattern')" class="error">
+                     Linkedln URL is not valid
+                  </div>
+               </div>
+               </div>
+               <div class="mb-3 col">
+                  <label for="github" class="form-label">GitHub URL*</label>
+                  <input type="text" class="form-control" formControlName="github" aria-describedby="emailHelp">
+                  <div
+                  *ngIf="resumeForm.controls.personalDetails.controls.github.invalid && (resumeForm.controls.personalDetails.controls.github.touched || resumeForm.controls.personalDetails.controls.github.dirty)">
+                  <div *ngIf="resumeForm.controls.personalDetails.controls.github.hasError('required')" class="error">
+                     GitHub URL is required
+                  </div>
+                  <div *ngIf="resumeForm.controls.personalDetails.controls.github.hasError('pattern')" class="error">
+                     GitHub URL is not valid
+                  </div>
+               </div>
+               </div>
+            </div>
+            <div class="mb-3">
+               <label for="skills" class="form-label">Skills</label>
+               <textarea class="form-control" formControlName="skills" rows="3"
+                  placeholder="For eg. Java, React, Angular"></textarea>
+            </div>
+         </div>
+         <div formGroupName="education">
+            <h5>Education</h5>
+            <hr />
+            <div class="row">
+               <div class="mb-3 col">
+                  <label for="college" class="form-label">College*</label>
+                  <input type="text" class="form-control" formControlName="college" aria-describedby="emailHelp">
+                  <div
+                  *ngIf="resumeForm.controls.education.controls.college.invalid && (resumeForm.controls.education.controls.college.touched || resumeForm.controls.education.controls.college.dirty)">
+                  <div *ngIf="resumeForm.controls.education.controls.college.hasError('required')" class="error">
+                     College is required
+                  </div>
+                  <div *ngIf="resumeForm.controls.education.controls.college.hasError('minlength')" class="error">
+                     College should atleast have 10 or more chars
+                  </div>
+                  <div *ngIf="resumeForm.controls.education.controls.college.hasError('pattern')" class="error">
+                     College is not valid
+                  </div>
+               </div>
+               </div>
+               <div class="mb-3 col">
+                  <label for="degree" class="form-label">Degree*</label>
+                  <input type="email" class="form-control" formControlName="degree" aria-describedby="emailHelp">
+                  <div
+                  *ngIf="resumeForm.controls.education.controls.degree.invalid && (resumeForm.controls.education.controls.degree.touched || resumeForm.controls.education.controls.degree.dirty)">
+                  <div *ngIf="resumeForm.controls.education.controls.degree.hasError('required')" class="error">
+                     Degree is required
+                  </div>
+                  <div *ngIf="resumeForm.controls.education.controls.degree.hasError('pattern')" class="error">
+                     Degree is not valid
+                  </div>
+               </div>
+               </div>
+               <div class="mb-3 col">
+                  <label for="marks" class="form-label">Percentage/CGPA*</label>
+                  <input type="text" class="form-control" formControlName="marks" aria-describedby="emailHelp">
+                  <div
+                  *ngIf="resumeForm.controls.education.controls.marks.invalid && (resumeForm.controls.education.controls.marks.touched || resumeForm.controls.education.controls.marks.dirty)">
+                  <div *ngIf="resumeForm.controls.education.controls.marks.hasError('required')" class="error">
+                     Percentage/CGPA is required
+                  </div>
+               </div>
+               </div>
+            </div>
+            <div class="row">
+               <div class="mb-3 col">
+                  <label for="collegeFrom" class="form-label">From*</label>
+                  <input class="form-control" placeholder="yyyy-mm-dd" formControlName="collegeFrom" type="date">
+                  <div
+                  *ngIf="resumeForm.controls.education.controls.collegeFrom.invalid && (resumeForm.controls.education.controls.collegeFrom.touched || resumeForm.controls.education.controls.collegeFrom.dirty)">
+                  <div *ngIf="resumeForm.controls.education.controls.collegeFrom.hasError('required')" class="error">
+                     From Date is required
+                  </div>
+               </div>
+               </div>
+               <div class="mb-3 col">
+                  <label for="collegeTo" class="form-label">To*</label>
+                  <input class="form-control" placeholder="yyyy-mm-dd" formControlName="collegeTo" type="date">
+                  <div
+                  *ngIf="resumeForm.controls.education.controls.collegeTo.invalid && (resumeForm.controls.education.controls.collegeTo.touched || resumeForm.controls.education.controls.collegeTo.dirty)">
+                  <div *ngIf="resumeForm.controls.education.controls.collegeTo.hasError('required')" class="error">
+                     To Date is required
+                  </div>
+               </div>
+               </div>
+            </div>
+         </div>
+         <div formGroupName="experience">
+            <h5>Experience</h5>
+            <hr />
+            <div class="row">
+               <div class="mb-3 col">
+                  <label for="organisation" class="form-label">Organisation*</label>
+                  <input type="text" class="form-control" formControlName="organisation" aria-describedby="emailHelp">
+                  <div
+                  *ngIf="resumeForm.controls.experience.controls.organisation.invalid && (resumeForm.controls.experience.controls.organisation.touched || resumeForm.controls.experience.controls.organisation.dirty)">
+                  <div *ngIf="resumeForm.controls.experience.controls.organisation.hasError('required')" class="error">
+                     Organisation is required
+                  </div>
+                  <div *ngIf="resumeForm.controls.experience.controls.organisation.hasError('pattern')" class="error">
+                     Organisation is not valid
+                  </div>
+               </div>
+               </div>
+               <div class="mb-3 col">
+                  <label for="position" class="form-label">Position*</label>
+                  <input type="email" class="form-control" formControlName="position" aria-describedby="emailHelp">
+                  <div
+                  *ngIf="resumeForm.controls.experience.controls.position.invalid && (resumeForm.controls.experience.controls.position.touched || resumeForm.controls.experience.controls.position.dirty)">
+                  <div *ngIf="resumeForm.controls.experience.controls.position.hasError('required')" class="error">
+                     Position is required
+                  </div>
+               </div>
+               </div>
+            </div>
+            <div class="row">
+               <div class="mb-3 col">
+                  <label for="companyFrom" class="form-label">From*</label>
+                  <input class="form-control" placeholder="yyyy-mm-dd" formControlName="companyFrom" type="date">
+                  <div
+                  *ngIf="resumeForm.controls.experience.controls.companyFrom.invalid && (resumeForm.controls.experience.controls.companyFrom.touched || resumeForm.controls.experience.controls.companyFrom.dirty)">
+                  <div *ngIf="resumeForm.controls.experience.controls.companyFrom.hasError('required')" class="error">
+                     From Date is required
+                  </div>
+               </div>
+               </div>
+               <div class="mb-3 col">
+                  <label for="comapanyTo" class="form-label">To*</label>
+                  <input class="form-control" placeholder="yyyy-mm-dd" formControlName="companyTo" type="date">
+                  <div
+                  *ngIf="resumeForm.controls.experience.controls.companyTo.invalid && (resumeForm.controls.experience.controls.companyTo.touched || resumeForm.controls.experience.controls.companyTo.dirty)">
+                  <div *ngIf="resumeForm.controls.experience.controls.companyTo.hasError('required')" class="error">
+                     To Date is required
+                  </div>
+               </div>
+               </div>
+            </div>
+            <div class="mb-3">
+               <input class="form-check-input" type="checkbox" value="" formControlName="presentDate"
+                  (change)="onChangePresentDate()">
+               <label for="presentDate" class="form-label" style="margin-left:10px">Present Date</label>
+            </div>
+            <div class="mb-3">
+               <label for="description" class="form-label">Description*</label>
+               <textarea class="form-control" formControlName="description" rows="3"></textarea>
+               <div
+               *ngIf="resumeForm.controls.experience.controls.description.invalid && (resumeForm.controls.experience.controls.description.touched || resumeForm.controls.experience.controls.description.dirty)">
+               <div *ngIf="resumeForm.controls.experience.controls.description.hasError('required')" class="error">
+                  Description is required
+               </div>
+            </div>
+            </div>
+         </div>
+         <div formGroupName="project">
+            <h5>Project</h5>
+            <hr />
+            <div class="row">
+               <div class="mb-3 col">
+                  <label for="title" class="form-label">Title*</label>
+                  <input type="text" class="form-control" formControlName="title" aria-describedby="emailHelp">
+                  <div
+                  *ngIf="resumeForm.controls.project.controls.title.invalid && (resumeForm.controls.project.controls.title.touched || resumeForm.controls.project.controls.title.dirty)">
+                  <div *ngIf="resumeForm.controls.project.controls.title.hasError('required')" class="error">
+                     Title is required
+                  </div>
+                  <div *ngIf="resumeForm.controls.project.controls.title.hasError('pattern')" class="error">
+                     Title is not valid
+                  </div>
+               </div>
+               </div>
+               <div class="mb-3 col">
+                  <label for="link" class="form-label">Link</label>
+                  <input type="text" class="form-control" formControlName="link" aria-describedby="emailHelp">
+                  <div
+                  *ngIf="resumeForm.controls.project.controls.link.invalid && (resumeForm.controls.project.controls.link.touched || resumeForm.controls.project.controls.link.dirty)">
+                  <div *ngIf="resumeForm.controls.project.controls.link.hasError('pattern')" class="error">
+                     Link is not valid
+                  </div>
+               </div>
+               </div>
+            </div>
+            <div class="mb-3">
+               <label for="Pdescription" class="form-label">Description*</label>
+               <textarea class="form-control" formControlName="Pdescription" rows="3"></textarea>
+               <div
+               *ngIf="resumeForm.controls.project.controls.Pdescription.invalid && (resumeForm.controls.project.controls.Pdescription.touched || resumeForm.controls.project.controls.Pdescription.dirty)">
+               <div *ngIf="resumeForm.controls.project.controls.Pdescription.hasError('required')" class="error">
+                  Description is required
+               </div>
+            </div>
+            </div>
+         </div>
+         <div formGroupName="hobbies">
+            <h5>Hobbies/Achievements</h5>
+            <hr />
+            <div class="row">
+               <div class="mb-3">
+                  <label for="hdescription" class="form-label">Description*</label>
+                  <textarea class="form-control" formControlName="hdescription" rows="3"></textarea>
+                  <div
+               *ngIf="resumeForm.controls.hobbies.controls.hdescription.invalid && (resumeForm.controls.hobbies.controls.hdescription.touched || resumeForm.controls.hobbies.controls.hdescription.dirty)">
+               <div *ngIf="resumeForm.controls.hobbies.controls.hdescription.hasError('required')" class="error">
+                  Description is required
+               </div>
+            </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <button class="btn btn-outline-primary calendar" type="submit" [disabled]="!resumeForm.valid">Submit</button>
+      <div class="error" *ngIf="errorMessage">There is some issue while generating the resume.</div>
+   </form>
+</section>
+<ngx-spinner
+  bdColor="rgba(51,51,51,0.8)"
+  size="medium"
+  color="#fff"
+  type="ball-scale-multiple"
+>
+  <p style="font-size: 20px; color: white">Loading...</p>
+</ngx-spinner>

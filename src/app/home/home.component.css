@@ -1,0 +1,46 @@
+.page-title[_ngcontent-eeq-c81] {
+    margin-left: 30px;
+    margin-top: 10px;
+    padding-top: 40px;
+    font-size: 40px;
+    line-height: 40px;
+    font-family: Commissioner, sans-serif;
+}
+.mx-auto {
+    margin-right: auto !important;
+    margin-left: auto !important;
+}
+.subtitle-content{
+    display: flex;
+}
+.download-preview-button, .subtitle-text {
+    margin: 10px;
+}
+.mat-button.mat-primary{
+    color: #2196f3;
+    box-sizing: border-box;
+    position: relative;
+    user-select: none;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    display: inline-block;
+    white-space: nowrap;
+    text-decoration: none;
+    vertical-align: baseline;
+    text-align: center;
+    margin: 0;
+    min-width: 64px;
+    line-height: 36px;
+    padding: 0 16px;
+    border-radius: 4px;
+    overflow: visible;
+}
+.mat-typography {
+    font: 400 14px / 20px Roboto, Helvetica Neue, sans-serif;
+    letter-spacing: normal;
+}
+.error{
+    color:red;
+    font-size: 10px;
+}
